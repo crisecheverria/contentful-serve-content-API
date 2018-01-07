@@ -61,7 +61,7 @@ Now for fetch data you can use the next code:
       `<div class="col-md-4">
         <div class="card">
           <a href="${technology.fields.link}"><img src="${technology.fields.logo.fields.file.url}" class="small-logo" /></a>
-          <h2><a href="/experts.html?t=${technology.fields.name}">${technology.fields.name}</a></h2>
+          <h2>${technology.fields.name}</h2>
           <p>${technology.fields.description}</p>
         </div>
       </div>`).join('')
@@ -70,3 +70,10 @@ Now for fetch data you can use the next code:
 ```
 
 ![ContentFul API](https://github.com/crisecheverria/contentful-serve-content-API/blob/master/images/contentful-api.png)
+
+## Final HTML and Conclusion
+So following the original author where I learn about Contentful, I also created [my own static webpage](https://cyber-sun.glitch.me) using [glitch.com](https://glitch.com).
+
+So, as a conclution I have to say that services like Contentful are really great tools in order to build webpages fast, at least for sites that are small you can use the Contentful FREE acount. For a developer like me that have experience using tools like Firebase and others I found Contentful really good, because it provides you with a CMS where you can create content and deliver your content to any device, at the end everything in web sharing are objects.
+
+Also I have to mention that Contentful has a `reference` field where you can create relations like `one-to-one` or `one-to-many` between your Content Model fields.
