@@ -9,6 +9,58 @@ With Contentful, you can create Models in order to store your data, for example 
 
 ![ContentFul Fields](https://github.com/crisecheverria/contentful-serve-content-API/blob/master/images/contentful-fields.png)
 
-Once you created your Content Model with his fields, then you can add content. Contentful provide a simple but great CMS in order to add your content, think just the same as Wordpress or any other CMS out there.
+Once you created your Content Model with his fields, then you can add content. Contentful provide a simple but great CMS in order to add your content, think just the same as Wordpress or any other CMS out there. Also you can choose the locale for every content `en-US` is the default locale.
 
 ![ContentFul CMS](https://github.com/crisecheverria/contentful-serve-content-API/blob/master/images/contentful-cms.png)
+
+## Contentful Javascript SDK
+Now, you can integrate your Models to your project using their [Javascript SDK](https://github.com/contentful/contentful.js)
+
+### Node
+Using npm:
+```
+npm install contentful
+```
+### Yarn
+Using npm:
+```
+yarn add contentful
+```
+### Browser
+For browsers, contentful recommend to download the SDK vá npm or yarn to ensure 100% availability.
+```
+<script src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
+```
+## Retrieve Data
+Now for fetch data you can use the next code:
+```javascript
+<script type="text/javascript">
+  // Contentful API SpaceId and accesToken
+  const client = contentful.createClient({
+    space: '2i6v00l3evd1',
+    accessToken: 'accdba3b0feedb0bb595e8e788e85860db650c44be74f46d4eaa7dc733bb6b5c'
+  })
+
+  function fetchTechnologies () {
+    return client.getEntries({
+        content_type: "technology"
+      })
+    .then((response) => response.items)
+    .catch((error) => {
+      console.log(`\nError occurred while fetching Entries for Technology:`)
+      console.error(error)
+    })
+  }
+
+  fetchTechnologies().then((technologies) => {
+    techCards.innerHTML += technologies.map(technology => 
+      `<div class="col-md-4">
+        <div class="card">
+          <a href="${technology.fields.link}"><img src="${technology.fields.logo.fields.file.url}" class="small-logo" /></a>
+          <h2><a href="/experts.html?t=${technology.fields.name}">${technology.fields.name}</a></h2>
+          <p>${technology.fields.description}</p>
+        </div>
+      </div>`).join('')
+  })
+</script>
+```
