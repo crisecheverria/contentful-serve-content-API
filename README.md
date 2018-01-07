@@ -55,7 +55,7 @@ Now for fetch data you can use the next code:
   }
 
   fetchTechnologies().then((technologies) => {
-    
+
     // Using Vanilla Javascript and Array Map Method we can publish our content in our HTML page
     techCards.innerHTML += technologies.map(technology => 
       `<div class="col-md-4">
@@ -68,3 +68,5 @@ Now for fetch data you can use the next code:
   })
 </script>
 ```
+
+![ContentFul API](https://github.com/crisecheverria/contentful-serve-content-API/blob/master/images/contentful-api.png)
