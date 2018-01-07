@@ -35,15 +35,17 @@ For browsers, contentful recommend to download the SDK vá npm or yarn to ensure
 Now for fetch data you can use the next code:
 ```javascript
 <script type="text/javascript">
-  // Contentful API SpaceId and accesToken
+
+  // Contentful API SpaceId and accesToken. You have to create your own SpaceId and accesToken inside the API header Menu
   const client = contentful.createClient({
     space: '2i6v00l3evd1',
     accessToken: 'accdba3b0feedb0bb595e8e788e85860db650c44be74f46d4eaa7dc733bb6b5c'
   })
 
   function fetchTechnologies () {
+    // Contentful provide the getEntries method from where you can fetch your Content Model data.
     return client.getEntries({
-        content_type: "technology"
+        content_type: "technology" // This is the name of one of my Content Model
       })
     .then((response) => response.items)
     .catch((error) => {
@@ -53,6 +55,8 @@ Now for fetch data you can use the next code:
   }
 
   fetchTechnologies().then((technologies) => {
+    
+    // Using Vanilla Javascript and Array Map Method we can publish our content in our HTML page
     techCards.innerHTML += technologies.map(technology => 
       `<div class="col-md-4">
         <div class="card">
