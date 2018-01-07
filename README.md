@@ -7,4 +7,4 @@ Remove content bottlenecks and enable developers and content creators to do thei
 ## Create Models
 With Contentful, you can create Models in order to store your data, for example you can create **Experts** and **Technology** Models and also you can define **Fields** from 1 - 50 fields and the fields can be: Text, Number, Date and Time, Location, Media, Boolean, JSON Object, Reference
 
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![ContentFul Fields](https://github.com/crisecheverria/contentful-serve-content-API/blob/master/images/contentful-fields.png)
